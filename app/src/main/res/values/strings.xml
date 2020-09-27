@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NewsTest</string>
+    <string name="desc">desc</string>
+    <string name="url_res">url_res</string>
+    <string name="res_date">res_date</string>
+    <string name="res_title">res_title</string>
+    <string name="res_author">res_author</string>
+</resources>
