@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         getDataFromLiveData();
         listeners();
     }
+
     private void initViews() {
         recyclerView = findViewById(R.id.recycler_view);
         isLoading = findViewById(R.id.progress_bar);
@@ -96,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
             if (aBoolean) isLoading.setVisibility(View.GONE);
         });
     }
+
     private void listeners() {
         adapter.setOnItemClickListener(pos ->
                 startActivity(new Intent(this, DetailsActivity.class)
@@ -106,9 +108,9 @@ public class MainActivity extends AppCompatActivity {
                 (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
                     if (scrollY == v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight()) {
                         if (cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected()) {
-                            if (pageSize >= mViewModel.news.getValue().size()) {
+                            if (pageSize <= mViewModel.news.getValue().size()) {
                                 page++;
-                                pageSize =+ 10;
+                           //     pageSize = +10;
                                 progressDown.setVisibility(View.VISIBLE);
                                 mViewModel.receiveData(page, pageSize);
                             } else {
