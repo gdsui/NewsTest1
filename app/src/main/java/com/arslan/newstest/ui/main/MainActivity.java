@@ -106,9 +106,9 @@ public class MainActivity extends AppCompatActivity {
                 (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
                     if (scrollY == v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight()) {
                         if (cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected()) {
-                            if (pageSize >= list.size()) {
+                            if (pageSize >= mViewModel.news.getValue().size()) {
                                 page++;
-                                pageSize = +10;
+                                pageSize =+ 10;
                                 progressDown.setVisibility(View.VISIBLE);
                                 mViewModel.receiveData(page, pageSize);
                             } else {
@@ -134,15 +134,5 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onConfigurationChanged(@NonNull Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        if (newConfig.orientation==Configuration.ORIENTATION_LANDSCAPE){
 
-        }else if (newConfig.orientation==Configuration.ORIENTATION_PORTRAIT){
-
-        }else {
-
-        }
-    }
 }
